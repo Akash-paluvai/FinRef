@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FinRef Design System - Professional Financial Platform */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Professional Financial Theme */
+    --background: 0 0% 100%;
+    --foreground: 210 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 15%;
+
+    /* Primary - Trustworthy Financial Blue */
+    --primary: 210 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 85% 55%;
+    --primary-dark: 210 85% 35%;
+
+    /* Secondary - Growth Green */
+    --secondary: 142 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 142 70% 55%;
+
+    /* Accent - Professional Orange */
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Neutral Grays */
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 15% 45%;
+
+    --subtle: 210 15% 98%;
+    --subtle-foreground: 210 15% 35%;
+
+    /* Status Colors */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 95% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 210 15% 90%;
+    --input: 210 15% 95%;
+    --ring: 210 85% 45%;
+
+    --radius: 0.75rem;
+
+    /* Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--subtle)) 0%, hsl(var(--background)) 100%);
+
+    /* Professional Shadows */
+    --shadow-sm: 0 2px 4px -1px hsl(210 15% 15% / 0.1);
+    --shadow-md: 0 4px 12px -2px hsl(210 15% 15% / 0.12);
+    --shadow-lg: 0 10px 25px -5px hsl(210 15% 15% / 0.15);
+    --shadow-xl: 0 20px 35px -10px hsl(210 15% 15% / 0.2);
+    --shadow-primary: 0 8px 25px -8px hsl(var(--primary) / 0.4);
+
+    /* Animation Durations */
+    --transition-fast: 150ms ease-out;
+    --transition-normal: 250ms ease-out;
+    --transition-slow: 350ms ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+  }
+
+  /* Dark mode - keeping for future compatibility */
+  .dark {
+    --background: 210 15% 5%;
+    --foreground: 0 0% 95%;
+    --card: 210 15% 8%;
+    --card-foreground: 0 0% 95%;
+    --primary: 210 85% 55%;
+    --primary-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom scrollbar for modern look */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Hero gradient text effect */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Professional card hover effect */
+  .card-hover {
+    transition: var(--transition-normal);
+    @apply hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Button animation */
+  .btn-primary {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-primary);
+    transition: var(--transition-normal);
+    @apply hover:shadow-xl hover:scale-105;
+  }
+
+  /* Smooth fade in animation */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pulse animation for trust indicators */
+  .pulse-subtle {
+    animation: pulseSubtle 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseSubtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+}
